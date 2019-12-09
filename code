@@ -23,6 +23,8 @@ turtle.pendown()
 # draw y=sinx
 for x in range(-350, 351):
     turtle.goto(x, 100*math.sin((x/100.0)*math.pi))
+
+turtle.write("y=sin x")
 # trace point
 for x in range(-350, 351, 50):
     turtle.setheading(0)
