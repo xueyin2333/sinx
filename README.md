@@ -1,2 +1,2 @@
 # sinx
-draw a sinx and cosx
+draw y=sinx
