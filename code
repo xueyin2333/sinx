@@ -4,21 +4,31 @@ import math
 
 x = -350
 turtle.speed(10)
+turtle.setup(width=0.7, height=0.6) # set the size of window
 turtle.penup()
 turtle.goto(x - 50, 0)
 turtle.pendown()
-turtle.forward(800)
+turtle.forward(800) # draw a x axis
 turtle.penup()
-turtle.goto(0, 200)
+turtle.goto(0, 150)
 turtle.pendown()
+turtle.setheading(90)
+turtle.stamp()
+turtle.write("y")
 turtle.setheading(270)
-turtle.forward(400)
+turtle.forward(300) # draw a y axis
 turtle.penup()
-turtle.goto(x, 100*math.sin((x/200.0)*2*math.pi))
+turtle.goto(x, 100*math.sin((x/100.0)*math.pi))
 turtle.pendown()
-
+# draw y=sinx
 for x in range(-350, 351):
-    turtle.goto(x, 100*math.sin((x/200.0)*2*math.pi))
+    turtle.goto(x, 100*math.sin((x/100.0)*math.pi))
+# trace point
+for x in range(-350, 351, 50):
+    turtle.setheading(0)
+    turtle.penup()
+    turtle.goto(x, 0)
+    turtle.pendown()
     if x == 100:
         turtle.write("\u03c0")
     elif x == -100:
@@ -27,19 +37,9 @@ for x in range(-350, 351):
         turtle.write("0")
     elif x % 100 == 0:
         turtle.write("%d\u03c0" % (x/100))
+    elif x % 50 == 0:
+        turtle.write("%g\u03c0" % (x/100))
 
-turtle.penup()
-turtle.goto(x, 100*math.cos((x/200.0)*2*math.pi))
-turtle.pendown()
-
-for x in range(-350, 351):
-    turtle.goto(x, 100*math.cos((x/200.0)*2*math.pi))
-    if x == 50:
-        turtle.write("\u03c0/2")
-    elif x == -50:
-        turtle.write("-\u03c0/2")
-    elif x % 50 == 0 and x % 100 != 0:
-        turtle.write("%d\u03c0/2" % (x / 50))
-
-turtle.hideturtle()
+turtle.goto(400, 0)
+turtle.write("x")
 turtle.done()
