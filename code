@@ -1,0 +1,45 @@
+# -*-coding:utf-8-*
+import turtle
+import math
+
+x = -350
+turtle.speed(10)
+turtle.penup()
+turtle.goto(x - 50, 0)
+turtle.pendown()
+turtle.forward(800)
+turtle.penup()
+turtle.goto(0, 200)
+turtle.pendown()
+turtle.setheading(270)
+turtle.forward(400)
+turtle.penup()
+turtle.goto(x, 100*math.sin((x/200.0)*2*math.pi))
+turtle.pendown()
+
+for x in range(-350, 351):
+    turtle.goto(x, 100*math.sin((x/200.0)*2*math.pi))
+    if x == 100:
+        turtle.write("\u03c0")
+    elif x == -100:
+        turtle.write("-\u03c0")
+    elif x == 0:
+        turtle.write("0")
+    elif x % 100 == 0:
+        turtle.write("%d\u03c0" % (x/100))
+
+turtle.penup()
+turtle.goto(x, 100*math.cos((x/200.0)*2*math.pi))
+turtle.pendown()
+
+for x in range(-350, 351):
+    turtle.goto(x, 100*math.cos((x/200.0)*2*math.pi))
+    if x == 50:
+        turtle.write("\u03c0/2")
+    elif x == -50:
+        turtle.write("-\u03c0/2")
+    elif x % 50 == 0 and x % 100 != 0:
+        turtle.write("%d\u03c0/2" % (x / 50))
+
+turtle.hideturtle()
+turtle.done()
